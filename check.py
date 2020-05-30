@@ -1,7 +1,18 @@
 import glob
 from os import path
-checkPath = path.expandvars(r'%AppData%\Discord\0.0.*\modules\discord_desktop_core\index.js')
-checkString = "module.exports = require('./core.asar');"
+print("Enter what Discord client you are using below")
+client = input("for standard, put S, for Canary, put C, and for PTB, put P.")
+if client == "S" or client == "s":
+    checkPath = path.expandvars(r'%AppData%\Discord\0.0.*\modules\discord_desktop_core\index.js')
+    checkString = "module.exports = require('./core.asar');"
+
+if client == "C" or client == "c":
+    checkPath = path.expandvars(r'%AppData%\discordcanary\0.0.*\modules\discord_desktop_core\index.js')
+    checkString = "module.exports = require('./core.asar');"
+
+if client == "P" or client == "p":
+    checkPath = path.expandvars(r'%AppData%\discordptb\0.0.*\modules\discord_desktop_core\index.js')
+    checkString = "module.exports = require('./core.asar');"
 
 print("running check...\n")
 
